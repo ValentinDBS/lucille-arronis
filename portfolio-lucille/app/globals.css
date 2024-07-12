@@ -1,0 +1,235 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --text: 227 30% 72%;
+    --background: 223 16% 83%;
+    --foreground: 227 30% 72%;
+    --card: 223 16% 83%;
+    --card-foreground: 227 30% 72%;
+    --popover: 223 16% 83%;
+    --popover-foreground: 227 30% 72%;
+    --primary: 228 23% 61%;
+    --primary-foreground: 223 16% 83%;
+    --secondary: 228 23% 61%;
+    --secondary-foreground: 223 16% 83%;
+    --muted: 225 16% 20%;
+    --muted-foreground: 228 29% 70%;
+    --accent: 228 23% 61%;
+    --accent-foreground: 223 16% 83%;
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 227 30% 72%;
+    --border: 225 16% 20%;
+    --input: 225 16% 20%;
+    --ring: 228 23% 40%;
+    --radius: 0rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.grillePerso {
+  margin-top: -1px;
+}
+
+@media all and (min-width: 1536px) {
+  .grillePerso {
+    background-size: 8.24vw 8.24vw;
+    background-image: linear-gradient(to right, #858fb350 1px, transparent 1px),
+      linear-gradient(to bottom, #858fb350 1px, transparent 1px);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 8.24vw);
+    grid-template-rows: repeat(auto-fill, 8.24vw);
+  }
+}
+
+@media all and (min-width: 1024px) and (max-width: 1535px) {
+  .grillePerso {
+    background-size: 8.94vw 8.94vw;
+    background-image: linear-gradient(to right, #858fb350 1px, transparent 1px),
+      linear-gradient(to bottom, #858fb350 1px, transparent 1px);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 8.94vw);
+    grid-template-rows: repeat(auto-fill, 8.94vw);
+  }
+}
+
+@media all and (min-width: 640px) and (max-width: 1023px) {
+  .grillePerso {
+    background-size: 12.17vw 12.17vw;
+    background-image: linear-gradient(to right, #858fb350 1px, transparent 1px),
+      linear-gradient(to bottom, #858fb350 1px, transparent 1px);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 12.17vw);
+    grid-template-rows: repeat(auto-fill, 12.17vw);
+  }
+}
+
+@media all and (min-width: 200px) and (max-width: 639px) {
+  .grillePerso {
+    background-size: 19.2vw 19.2vw;
+    background-image: linear-gradient(to right, #858fb350 1px, transparent 1px),
+      linear-gradient(to bottom, #858fb350 1px, transparent 1px);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 19.2vw);
+    grid-template-rows: repeat(auto-fill, 19.2vw);
+  }
+}
+
+@media all and (min-width: 881px) and (max-width: 1023px) {
+  .grillePerso {
+    height: 140svh;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 880px) {
+  .grillePerso {
+    height: 120svh;
+  }
+}
+
+@media all and (min-width: 560px) and (max-width: 639px) {
+  .grillePerso {
+    height: 140svh;
+  }
+}
+
+@media all and (min-width: 560px) and (max-width: 639px) {
+  .grillePerso {
+    height: 140svh;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 560px) {
+  .grillePerso {
+    height: 120svh;
+  }
+}
+
+@media all and (min-width: 1024px) {
+  #services {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+  }
+}
+
+/* Header */
+/* Header */
+
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 10px;
+  box-sizing: border-box;
+  z-index: 10;
+  top: 0;
+  padding: 40px;
+}
+
+.burger {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.burger::before,
+.burger::after {
+  display: block;
+  content: "";
+  width: 50px;
+  height: 2px;
+  background-color: hsl(var(--secondary));
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.burger::after {
+  top: -5px;
+}
+
+.burger::before {
+  top: 5px;
+}
+
+.burgerActive::after {
+  transform: rotate(45deg);
+  top: -1px;
+}
+
+.burgerActive::before {
+  transform: rotate(-45deg);
+  top: 0px;
+}
+
+.menu {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  background-color: hsl(var(--background));
+  height: 100vh;
+  width: 100%;
+  z-index: 3;
+  margin: 0 auto;
+}
+
+/* Animations for the pseudo-element */
+@keyframes openAnimation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes closeAnimation {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
+
+/* Base styles for the pseudo-element */
+.category-text::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  position: absolute;
+  left: auto;
+  top: 50%;
+  margin-left: 1.5rem;
+}
+
+/* Classes to trigger animations */
+.category-open::after {
+  animation: openAnimation 0.5s forwards;
+}
+
+.category-closed::after {
+  animation: closeAnimation 0.5s forwards;
+}
