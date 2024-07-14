@@ -5,8 +5,8 @@ export const projectsList: CategoriesType = {
     {
       name: "Site Internet",
       projects: [
-        { name: "Projet internet 1", image: "/images/placeholder.jpg" },
-        { name: "Projet  internet 2", image: "/images/placeholder.jpg" },
+        { name: "Projet internet 1", image: "/images/image.png" },
+        { name: "Projet  internet 2", image: "/images/image2.png" },
         { name: "Projet 3", image: "/images/placeholder.jpg" },
       ],
     },

@@ -119,7 +119,7 @@ const Projects = () => {
                   </>
                 ) : (
                   <>
-                    <div className="h-full bg-text w-1/2">
+                    <div className="h-full bg-background w-1/2">
                       <Image
                         src={project.image}
                         alt={project.name}
@@ -146,7 +146,7 @@ const Projects = () => {
                 <p className="text-text uppercase text-[5vw] lg:w-1/2">
                   {project.name}
                 </p>
-                <div className="h-full w-full bg-text lg:w-1/2">
+                <div className="h-full w-full bg-background lg:w-1/2">
                   <Image
                     src={project.image}
                     alt={project.name}
