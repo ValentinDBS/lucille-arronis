@@ -104,7 +104,7 @@ const About = (): JSX.Element => {
   const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
 
   return (
-    <div className="relative flex h-full overflow-hidden">
+    <div className="relative flex h-full overflow-hidden" id="about">
       {[...Array(20)].map((_, i) => (
         <div key={i} className="w-[5vw] h-full">
           {getBlocks()}
@@ -112,7 +112,7 @@ const About = (): JSX.Element => {
       ))}
       <motion.section
         ref={sectionRef}
-        className="absolute w-full h-full px-[4vw] py-[5vh] flex flex-col gap-12 items-start lg:py-0 lg:gap-32  lg:flex-row lg:items-center xl:gap-64 2xl:gap-80"
+        className="absolute w-full h-full px-[4vw] py-[5vh] flex flex-col gap-12 items-start justify-center lg:py-0 lg:gap-32  lg:flex-row lg:items-center xl:gap-64 2xl:gap-80"
       >
         <h2 className="text-[8vw] text-background leading-[8vw] uppercase lg:w-fit lg:px-6 lg:text-[10vw] lg:leading-[10vw] xl:text-[9vw] xl:leading-[9vw] 2xl:text-[8vw] 2xl:leading-[8vw]">
           {"About".split("").map((letter, index) => (

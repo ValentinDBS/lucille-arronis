@@ -42,6 +42,10 @@
   }
 }
 
+body {
+  scroll-behavior: smooth;
+}
+
 .grillePerso {
   margin-top: -1px;
 }
@@ -181,17 +185,114 @@
   top: 0px;
 }
 
-.menu {
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  background-color: hsl(var(--background));
-  height: 100vh;
-  width: 100%;
-  z-index: 3;
-  margin: 0 auto;
+@media all and (min-width: 1536px) {
+  .menu {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-size: 8.24vw 8.24vw;
+    background-image: linear-gradient(to right, #858fb350 1px, transparent 1px),
+      linear-gradient(to bottom, #858fb350 1px, transparent 1px);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 8.24vw);
+    grid-template-rows: repeat(auto-fill, 8.24vw);
+    height: 100svh;
+    width: 100%;
+    z-index: 3;
+    margin: 0 auto;
+  }
+}
+
+@media all and (min-width: 1024px) and (max-width: 1535px) {
+  .menu {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-size: 8.94vw 8.94vw;
+    background-image: linear-gradient(to right, #858fb350 1px, transparent 1px),
+      linear-gradient(to bottom, #858fb350 1px, transparent 1px);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 8.94vw);
+    grid-template-rows: repeat(auto-fill, 8.94vw);
+    height: 100svh;
+    width: 100%;
+    z-index: 3;
+    margin: 0 auto;
+  }
+}
+
+@media all and (min-width: 640px) and (max-width: 1023px) {
+  .menu {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-size: 12.17vw 12.17vw;
+    background-image: linear-gradient(to right, #858fb350 1px, transparent 1px),
+      linear-gradient(to bottom, #858fb350 1px, transparent 1px);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 12.17vw);
+    grid-template-rows: repeat(auto-fill, 12.17vw);
+    height: 100svh;
+    width: 100%;
+    z-index: 3;
+    margin: 0 auto;
+  }
+}
+
+@media all and (min-width: 200px) and (max-width: 639px) {
+  .menu {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-size: 19.2vw 19.2vw;
+    background-image: linear-gradient(to right, #858fb350 1px, transparent 1px),
+      linear-gradient(to bottom, #858fb350 1px, transparent 1px);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 19.2vw);
+    grid-template-rows: repeat(auto-fill, 19.2vw);
+    height: 100svh;
+    width: 100%;
+    z-index: 3;
+    margin: 0 auto;
+  }
+}
+
+@media all and (min-width: 881px) and (max-width: 1023px) {
+  .menu {
+    height: 140svh;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 880px) {
+  .menu {
+    height: 120svh;
+  }
+}
+
+@media all and (min-width: 560px) and (max-width: 639px) {
+  .menu {
+    height: 140svh;
+  }
+}
+
+@media all and (min-width: 560px) and (max-width: 639px) {
+  .menu {
+    height: 140svh;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 560px) {
+  .menu {
+    height: 120svh;
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
 }
 
 /* Animations for the pseudo-element */
@@ -232,4 +333,27 @@
 
 .category-closed::after {
   animation: closeAnimation 0.5s forwards;
+}
+
+/* Lenis */
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }

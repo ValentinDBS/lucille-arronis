@@ -62,7 +62,7 @@ const Paragraph: React.FC<ParagraphProps> = ({
   const wordStep = wordAmount / words.length;
 
   return (
-    <p className="flex flex-wrap justify-end leading-normal">
+    <p className="flex flex-wrap justify-end leading-normal hover:text-secondary transition-all duration-500">
       {words.map((word, i) => {
         const start = wordRange[0] + i * wordStep;
         const end = wordRange[0] + (i + 1) * wordStep;
@@ -81,7 +81,7 @@ const Services: React.FC = () => {
 
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ["start 0.8", "start 0.25"],
+    offset: ["start 0.8", "start 0.1"],
   });
 
   const servicesList = [

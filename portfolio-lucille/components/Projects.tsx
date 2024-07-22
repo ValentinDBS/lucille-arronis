@@ -35,7 +35,7 @@ const Projects = () => {
   };
 
   return (
-    <section className="px-[4vw] py-[5vh] lg:pt-[12vh] lg:pb-0">
+    <section className="px-[4vw] py-[5vh] lg:pt-[12vh] lg:pb-0" id="projects">
       <div className="lg:flex lg:gap-4">
         <div className="flex items-center justify-between lg:flex-col lg:items-start lg:justify-start lg:gap-4">
           <div className="flex flex-col gap-4">
@@ -53,7 +53,7 @@ const Projects = () => {
                   animate={
                     category.name === selectedCategory ? "open" : "closed"
                   }
-                  className={`category-text uppercase relative text-[2.5vw] leading-normal w-full ${
+                  className={`category-text uppercase relative text-[2.5vw] leading-normal w-full hover:text-secondary transition-all duration-500 ${
                     category.name === selectedCategory
                       ? "text-primary category-open"
                       : "text-text category-closed"
@@ -70,7 +70,7 @@ const Projects = () => {
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="outline"
-                  className="min-w-24 sm:min-w-36 min-h-fit w-1/3 sm:h-12 md:h-16 uppercase text-base sm:text-xl"
+                  className="min-w-24 sm:min-w-36 min-h-fit w-1/3 sm:h-12 md:h-16 uppercase text-base sm:text-xl border-secondary"
                 >
                   {selectedCategory}
                 </Button>

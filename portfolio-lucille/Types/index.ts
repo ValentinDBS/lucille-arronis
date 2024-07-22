@@ -9,3 +9,5 @@ export type CategoryType = {
 };
 
 export type CategoriesType = { categories: CategoryType[] };
+
+export type ParamsProps = { params: { locale: string } };

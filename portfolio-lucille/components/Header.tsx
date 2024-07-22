@@ -1,13 +1,41 @@
+"use client"; // Ajoutez cette ligne pour indiquer que ce composant est client-side
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import Menu from "./Menu"; // Assurez-vous que le chemin est correct
 
-// Définition du type des props
-type HeaderProps = {
-  menuIsActive: any;
-  setMenuIsActive: (isActive: any) => void;
-};
+const Header: React.FC = () => {
+  const [menuIsActive, setMenuIsActive] = useState(false);
 
-const Header: React.FC<HeaderProps> = ({ menuIsActive, setMenuIsActive }) => {
+  const handleMenuToggle = () => {
+    setMenuIsActive(!menuIsActive);
+  };
+
+  useEffect(() => {
+    if (menuIsActive) {
+      document.body.style.position = "fixed";
+      document.body.style.top = "0";
+      document.body.style.left = "0";
+      document.body.style.width = "100%";
+      document.body.style.height = "100%";
+    } else {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.width = "";
+      document.body.style.height = "";
+    }
+    return () => {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.width = "";
+      document.body.style.height = "";
+    };
+  }, [menuIsActive]);
+
   return (
     <header className="grid grid-cols-subgrid grid-rows-subgrid col-span-full lg:row-span-1 place-items-center">
       <div className="col-start-1 col-span-1 sm:col-start-2 lg:col-span-1 lg:col-start-2 bg-secondary w-full h-full flex justify-center items-center">
@@ -24,12 +52,13 @@ const Header: React.FC<HeaderProps> = ({ menuIsActive, setMenuIsActive }) => {
 
       <div className="header -col-start-1 sm:-col-start-3 justify-self-center md:justify-self-center">
         <div
-          onClick={() => {
-            setMenuIsActive(!menuIsActive);
-          }}
+          onClick={handleMenuToggle}
           className={`burger ${menuIsActive ? "burgerActive" : ""}`}
         ></div>
       </div>
+
+      {/* Include the Menu component */}
+      <Menu menuIsActive={menuIsActive} setMenuIsActive={setMenuIsActive} />
     </header>
   );
 };

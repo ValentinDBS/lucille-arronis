@@ -1,9 +1,15 @@
+"use client";
+
+import { ParamsProps } from "@/Types";
 import { delay, motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 const Hero = () => {
-  const greeting = "Hi, ";
-  const imText = "i'm ";
+  const { t } = useTranslation("hero");
+
+  const greeting = t("greeting");
+  const imText = t("imText");
   const name = "Lucille";
 
   const [displayedGreeting, setDisplayedGreeting] = useState("");
@@ -24,7 +30,7 @@ const Hero = () => {
     return () => {
       clearInterval(typingGreeting);
     };
-  }, [displayedGreeting]);
+  }, [displayedGreeting, greeting]);
 
   useEffect(() => {
     if (displayedGreeting === greeting) {
@@ -40,7 +46,7 @@ const Hero = () => {
         clearInterval(typingIm);
       };
     }
-  }, [displayedGreeting, displayedIm]);
+  }, [displayedGreeting, displayedIm, greeting, imText]);
 
   useEffect(() => {
     if (displayedGreeting === greeting && displayedIm === imText) {
@@ -56,10 +62,9 @@ const Hero = () => {
         clearInterval(typingName);
       };
     }
-  }, [displayedGreeting, displayedIm, displayName]);
+  }, [displayedGreeting, displayedIm, displayName, greeting, imText, name]);
 
   // Animation for the right part of the hero
-
   const MULTIDIRECTION_SLIDE_VARIANTS = {
     hidden: { opacity: 0, x: "-5vw" },
     visible: { opacity: 1, x: 0, transition: { delay: 1, duration: 1 } },
@@ -93,7 +98,7 @@ const Hero = () => {
           transition={{ duration: 1 }}
           className="inline-block content-end h-full col-span-full"
         >
-          Designeuse
+          {t("title1")}
         </motion.span>
         <motion.span
           initial="right"
@@ -102,7 +107,7 @@ const Hero = () => {
           transition={{ duration: 1 }}
           className="inline-block -ml-[1px] sm:-ml-1 content-end h-full col-span-full sm:col-start-2 lg:col-start-3"
         >
-          graphique
+          {t("title2")}
         </motion.span>
         <motion.span
           initial="hidden"
@@ -111,7 +116,7 @@ const Hero = () => {
           transition={{ duration: 1 }}
           className="inline-block content-end h-full col-span-full"
         >
-          & web
+          {t("title3")}
         </motion.span>
       </h1>
     </>
