@@ -51,7 +51,7 @@ export const projectsList: CategoriesType = {
           image: "/restaurant/la-perle-mockup-carte-de-restau.png",
         },
 
-        { name: "ZenTea", image: "/restaurant/zentea-mockup-carte-restau.png" },
+        { name: "ZenTea", image: "/restaurant/1.png" },
         {
           name: "Cubo",
           image: "/restaurant/cubo-mockup-carte-restau.png",
