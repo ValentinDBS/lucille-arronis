@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Menu from "./Menu"; // Assurez-vous que le chemin est correct
+import LanguageChanger from "./LanguageChanger";
 
 const Header: React.FC = () => {
   const [menuIsActive, setMenuIsActive] = useState(false);
@@ -56,7 +57,7 @@ const Header: React.FC = () => {
           className={`burger ${menuIsActive ? "burgerActive" : ""}`}
         ></div>
       </div>
-
+      <LanguageChanger />
       {/* Include the Menu component */}
       <Menu menuIsActive={menuIsActive} setMenuIsActive={setMenuIsActive} />
     </header>

@@ -6,9 +6,9 @@ import {
   AnimationControls,
   useScroll,
   useTransform,
-  useViewportScroll,
 } from "framer-motion";
 import { useEffect, useRef, RefObject, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const anim = {
   initial: {
@@ -65,6 +65,7 @@ const Block = ({ custom }: { custom: number }): JSX.Element => {
 
 const About = (): JSX.Element => {
   const [isMounted, setIsMounted] = useState(false);
+  const { t } = useTranslation("about");
 
   useEffect(() => {
     setIsMounted(true); // Marquer que le composant est monté lorsque le composant est monté côté client
@@ -125,25 +126,19 @@ const About = (): JSX.Element => {
               {letter}
             </span>
           ))}
-          <span className="text-[14vw] leading-[14vw] uppercase lg:hidden ">
-            About
+          <span className="text-[14vw] leading-[14vw] md:text-[12vw] md:leading-[12vw] uppercase lg:hidden ">
+            {t("title")}
           </span>
         </h2>
-        <div className="flex text-background flex-col gap-4 leading-normal uppercase text-base md:text-[3.5vw] lg:text-[2.5vw] lg:w-[70%] xl:text-[2vw] xl:w-[55%]">
+        <div className="flex text-background flex-col gap-4 leading-normal uppercase text-base md:text-[2.5vw] lg:text-[2.5vw] lg:w-[70%] xl:text-[2vw] xl:w-[55%]">
           <p className="lg:mb-8">
-            Je suis{" "}
+            {t("p1-firstSentence")}{" "}
             <span className="bg-background text-secondary px-2">
-              designeuse graphique et web
+              {t("p1-span")}
             </span>{" "}
-            freelance passionnée. Chaque projet est pour moi l&apos;occasion de
-            découvrir de nouvelles idées et d&apos;explorer des concepts
-            innovants.
+            {t("p1-lastSentence")}
           </p>
-          <p>
-            Quand je ne travaille pas sur des projets de design, je me passionne
-            pour les voyages et la photographie. Ces activités enrichissent mon
-            inspiration et apportent une dimension supplémentaire à mon travail.
-          </p>
+          <p>{t("p2-sentence")}</p>
         </div>
       </motion.section>
     </div>

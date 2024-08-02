@@ -10,13 +10,20 @@ import { ParamsProps } from "@/Types";
 import initTranslations from "../i18n";
 
 export default async function Home({ params: { locale } }: ParamsProps) {
-  const { t, resources } = await initTranslations(locale, ["hero"]);
+  const { resources } = await initTranslations(locale, [
+    "hero",
+    "about",
+    "services",
+    "projects",
+    "cta",
+    "menu",
+  ]);
 
   return (
     <TranslationsProvider
       resources={resources}
       locale={locale}
-      namespaces={["hero"]}
+      namespaces={["hero", "about", "services", "projects", "cta", "menu"]}
     >
       <LenisWrapper />
       <section className="grillePerso min-h-svh">

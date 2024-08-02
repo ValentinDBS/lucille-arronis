@@ -1,9 +1,7 @@
 import { motion, stagger } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-
-// Stagger pour les éléments de texte
-const staggerText = stagger(0.2, { startDelay: 0.5 });
+import { useTranslation } from "react-i18next";
 
 const animParent = {
   initial: {
@@ -62,10 +60,10 @@ const animText = {
 };
 
 const LinkList = [
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { name: "about", href: "#about" },
+  { name: "services", href: "#services" },
+  { name: "projects", href: "#projects" },
+  { name: "contact", href: "#contact" },
 ];
 
 type MenuProps = {
@@ -78,6 +76,8 @@ const Menu: React.FC<MenuProps> = ({ menuIsActive, setMenuIsActive }) => {
     setMenuIsActive(false);
   };
 
+  const { t } = useTranslation("menu");
+
   return (
     <motion.div
       className="menu max-h-svh text-[12vw] leading-[12vw] lg:text-[6vw] lg:leading-[6vw] bg-background"
@@ -86,7 +86,7 @@ const Menu: React.FC<MenuProps> = ({ menuIsActive, setMenuIsActive }) => {
       animate={menuIsActive ? "open" : "closed"}
     >
       <motion.div
-        className="logo-container col-start-1 col-span-1 h-full sm:col-start-2 lg:col-span-1 lg:col-start-2 bg-secondary w-full flex justify-center items-center"
+        className="logo-container col-start-1 col-span-1 h-full lg:col-span-1 lg:col-start-2 bg-secondary w-full flex justify-center items-center"
         variants={animLogo}
         initial="initial"
         animate={menuIsActive ? "open" : "closed"}
@@ -102,7 +102,7 @@ const Menu: React.FC<MenuProps> = ({ menuIsActive, setMenuIsActive }) => {
         </Link>
       </motion.div>
       <motion.div
-        className="text-container my-0 mx-auto grid place-items-center grid-cols-subgrid grid-rows-subgrid row-span-full col-span-full row-start-3 xl:row-start-2"
+        className="text-container my-0 mx-auto grid place-items-center grid-cols-subgrid grid-rows-subgrid row-span-full col-span-full xl:row-start-2"
         variants={animText}
         initial="initial"
         animate={menuIsActive ? "open" : "closed"}
@@ -118,7 +118,7 @@ const Menu: React.FC<MenuProps> = ({ menuIsActive, setMenuIsActive }) => {
             className="uppercase text-secondary inline-block content-end h-full text-[14vw] leading-[11.9vw] sm:text-[12vw] sm:leading-[9.9vw] lg:text-[8vw] lg:leading-[6.2vw] xl:text-[7.9vw] xl:leading-[6.5vw] col-span-full hover:text-text transition-all duration-500"
           >
             <Link href={link.href} onClick={handleLinkClick}>
-              {link.name}
+              {t(link.name)}
             </Link>
           </motion.div>
         ))}

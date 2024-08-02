@@ -1,7 +1,9 @@
 "use client";
 
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+import { t } from "i18next";
 import React, { useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 interface CharProps {
   children: React.ReactNode;
@@ -62,7 +64,7 @@ const Paragraph: React.FC<ParagraphProps> = ({
   const wordStep = wordAmount / words.length;
 
   return (
-    <p className="flex flex-wrap justify-end leading-normal hover:text-secondary transition-all duration-500">
+    <p className="flex flex-wrap justify-start lg:justify-end leading-normal hover:text-secondary transition-all duration-500">
       {words.map((word, i) => {
         const start = wordRange[0] + i * wordStep;
         const end = wordRange[0] + (i + 1) * wordStep;
@@ -78,18 +80,18 @@ const Paragraph: React.FC<ParagraphProps> = ({
 
 const Services: React.FC = () => {
   const container = useRef<HTMLDivElement | null>(null);
-
+  const { t } = useTranslation("services");
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start 0.8", "start 0.1"],
   });
 
   const servicesList = [
-    "Design de site internet",
-    "Creation de logo",
-    "Création de carte de visite",
-    "Design de livre",
-    "Carte de restaurant",
+    t("service1"),
+    t("service2"),
+    t("service3"),
+    t("service4"),
+    t("service5"),
   ];
 
   return (
@@ -98,7 +100,7 @@ const Services: React.FC = () => {
         className="w-full h-full text-[12vw] text-center uppercase text-background bg-secondary py-2 lg:w-fit lg:h-max lg:text-[8vw] lg:px-6 lg:py-24"
         id="services"
       >
-        Services
+        {t("title")}
       </h2>
       <div
         ref={container}
