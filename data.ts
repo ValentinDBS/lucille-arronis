@@ -6,7 +6,7 @@ export const projectsList: CategoriesType = {
       name: "Site Internet",
       id: 1,
       projects: [
-        { name: "Projet internet 1", image: "/images/image.png" },
+        { name: "Projet internet 1", image: "/website/valentin.png" },
         { name: "Projet  internet 2", image: "/images/image2.png" },
         { name: "Projet 3", image: "/images/placeholder.jpg" },
       ],
@@ -51,7 +51,7 @@ export const projectsList: CategoriesType = {
           image: "/restaurant/la-perle-mockup-carte-de-restau.png",
         },
 
-        { name: "ZenTea", image: "/restaurant/1.png" },
+        { name: "ZenTea", image: "/restaurant/zentea-mockup-carte-restau.png" },
         {
           name: "Cubo",
           image: "/restaurant/cubo-mockup-carte-restau.png",
